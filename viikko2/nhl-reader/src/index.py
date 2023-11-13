@@ -14,6 +14,9 @@ def main():
         player = Player(player_dict)
         if player.nationality == "FIN":
             players.append(player)
+    # https://www.freecodecamp.org/news/python-sort-how-to-sort-a-list-in-python/
+    # Mallista otettu
+    players.sort(key=lambda player: player.goals, reverse=True)
 
     #print("Oliot:")
     print("Players from FIN\n")
