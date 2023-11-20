@@ -6,3 +6,4 @@ htmlcov/
 *.code-workspace
 log.html
 report.html
+output.xml

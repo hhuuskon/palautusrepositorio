@@ -12,8 +12,8 @@ Login With Incorrect Password
     Output Should Contain  Invalid username or password
 
 Login With Nonexistent Username
-    Input Credentials  vaaratunnus  kalle123
-    Output Should Contain  Invalid username or password
+    Input Credentials    vaaratunnus  kalle123
+    Output Should Contain    Invalid username or password
 
 *** Keywords ***
 Create User And Input Login Command
