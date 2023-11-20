@@ -3,6 +3,6 @@ __pycache__/
 .pytest_cache/
 .coverage
 htmlcov/
-.code-workspace
+*.code-workspace
 log.html
 report.html
