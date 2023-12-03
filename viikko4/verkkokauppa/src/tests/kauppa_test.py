@@ -304,3 +304,5 @@ class TestKauppa(unittest.TestCase):
         kauppa.poista_korista(1)
 
         self.assertEqual(varasto_mock.palauta_varastoon.call_count, 1)
+
+# Viikko5 tehtava1 muutos
