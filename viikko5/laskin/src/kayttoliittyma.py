@@ -7,32 +7,40 @@ class Komento(Enum):
     NOLLAUS = 3
     KUMOA = 4
 
-class Summa:
+# Otettu mallia ohjeistuksen mukaan
+# https://ohjelmistotuotanto-hy.github.io/osa4/#laskin-ja-komento-olio-viikko-5
+# https://ohjelmistotuotanto-hy.github.io/osa4/#yhteisen-koodin-eriytt%C3%A4minen-yliluokkaan-viikko-5
+
+class Komentotehdas:
     def __init__(self, sovelluslogiikka, lue_syote):
         self._sovelluslogiikka = sovelluslogiikka
         self._lue_syote = lue_syote
+
+    def suorita(self):
+        return 0
+
+class Summa(Komentotehdas):
 
     def suorita(self):
         arvo = self._lue_syote()
         self._sovelluslogiikka.plus(arvo)
 
-class Erotus:
-    def __init__(self, sovelluslogiikka, lue_syote):
-        self._sovelluslogiikka = sovelluslogiikka
-        self._lue_syote = lue_syote
+class Erotus(Komentotehdas):
 
     def suorita(self):
         arvo = self._lue_syote()
         self._sovelluslogiikka.miinus(arvo)
 
-class Nollaus:
-    def __init__(self, sovelluslogiikka, lue_syote):
-        self._sovelluslogiikka = sovelluslogiikka
-        self._lue_syote = lue_syote
+class Nollaus(Komentotehdas):
 
     def suorita(self):
         self._sovelluslogiikka.nollaa()
 
+class Kumoa(Komentotehdas):
+
+    def suorita(self):
+        self._sovelluslogiikka.kumoa()
+            
 
 class Kayttoliittyma:
     def __init__(self, sovelluslogiikka, root):
@@ -43,6 +51,7 @@ class Kayttoliittyma:
             Komento.SUMMA: Summa(sovelluslogiikka, self._lue_syote),
             Komento.EROTUS: Erotus(sovelluslogiikka, self._lue_syote),
             Komento.NOLLAUS: Nollaus(sovelluslogiikka, self._lue_syote),
+            Komento.KUMOA: Kumoa(sovelluslogiikka, self._lue_syote)
         }
 
 
