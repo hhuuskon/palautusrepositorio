@@ -84,3 +84,6 @@ class QueryBuilder:
     
     def build(self):
         return self._pino
+    
+    def oneOf(self, *matchers):
+        return QueryBuilder(Or(*matchers))
